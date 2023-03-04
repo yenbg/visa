@@ -7,7 +7,7 @@ const puppeteer = require('puppeteer');
             familyName: "Nguyen",
             givensName: "Phu Du",
             phone: "0394926940",
-            email: "emdza0013@gmail.com",
+            email: "emdza0012@gmail.com",
             password: "@Tambiet310520"
         }
     ]
