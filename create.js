@@ -25,77 +25,53 @@ const puppeteer = require('puppeteer');
 
             await page.waitForSelector('button[name="login"]');
             try {
-                await page.waitForTimeout(1000);
                 await page.evaluate(() => {
                     document.querySelector('button[name="login"]').click();
                 });
-
             } catch (error) {
                 console.error('Lỗi khi click vào nút login:', error);
             }
 
             await page.waitForSelector('button[name="continue"]');
             try {
-                await page.waitForTimeout(1000);
                 await page.evaluate(() => {
                     document.querySelector('button[name="continue"]').click();
                 });
-
             } catch (error) {
                 console.error('Lỗi khi click vào nút continue:', error);
             }
 
-            await Promise.all([
-                page.waitForNavigation(), // đợi cho trang mới được tải hoàn toàn
-                page.waitForSelector('button[name="btn_newapp"]'), // đợi cho selector xuất hiện trên trang mới
-            ]);
-            await page.click('button[name="btn_newapp"]')
-            console.log('egeehbeyhfhefyhe'),
-
-               await page.waitForSelector('button[name="mainpanel_parentSection_1b0a0bf"]'), // đợi cho selector xuất hiện trên trang mới
-
-
-                console.log('efgbehfgbeheughegh');
-            try {
-                await page.waitForTimeout(1000);
-                await page.evaluate(() => {
-                    document.querySelector('button[name="mainpanel_parentSection_1b0a0bf"]').click();
-                });
-            } catch (error) {
-                console.error('Lỗi khi click vào nút mainpanel_parentSection_1b0a0bf1a:', error);
-            }
-                console.log('lailailai11111')
-                await page.waitForSelector('button[name="mainpanel_parentSection_1b0a0bf1a"]'), // đợi cho selector xuất hiện trên trang mới
-                    console.log('lailailai222222')
-            try {
-                await page.waitForTimeout(1000);
-                await page.evaluate(() => {
-                    document.querySelector('button[name="mainpanel_parentSection_1b0a0bf1a"]').click();
-                });
-            } catch (error) {
-                console.error('Lỗi khi click vào nút mainpanel_parentSection_1b0a0bf1a:', error);
-            }
-           console.log('lailailai')
-
-            await Promise.all([
-                page.waitForNavigation(), // đợi cho trang mới được tải hoàn toàn
-                page.waitForSelector('#_2a0b0a0a0e0a0a0a5a1a_input"]'), // đợi cho selector xuất hiện trên trang mới
-            ]);
+            await page.waitForSelector('button[name="btn_newapp"]');
             await Promise.all([
                 page.waitForNavigation(),
-                page.click('#_2a0b0a0a0e0a0a0a5a1a_input"]')
+                page.click('button[name="btn_newapp"]')
             ]);
 
-            await page.waitForSelector('#_2a0b0a0a0g1');
-            try {
-                await page.waitForTimeout(1000);
-                await page.evaluate(() => {
-                    document.querySelector('#_2a0b0a0a0g1').click();
-                });
+            await page.waitForSelector('.wc-submenu.wc-submenu-type-tree#mainpanel_parentSection_1b0a0bf');
+            await page.waitForTimeout(1500);
+            await page.evaluate(() => {
+                const element = document.querySelector('.wc-submenu.wc-submenu-type-tree#mainpanel_parentSection_1b0a0bf');
+                element.click();
+            });
 
-            } catch (error) {
-                console.error('Lỗi khi click vào nút next:', error);
-            }
+            await page.waitForSelector('.wc-menuitem.wc-invite.wc-nobutton#mainpanel_parentSection_1b0a0bf1a');
+            await page.waitForTimeout(1500);
+            await page.evaluate(() => {
+                const element = document.querySelector('.wc-menuitem.wc-invite.wc-nobutton#mainpanel_parentSection_1b0a0bf1a');
+                element.click();
+            });
+
+            await page.waitForSelector('#_2a0b0a0a0e0a0a0a5a1a_input');
+            await page.evaluate(() => {
+                const element = document.querySelector('#_2a0b0a0a0e0a0a0a5a1a_input');
+                element.click();
+            });
+
+            await page.waitForSelector('button[name="next"]');
+            await page.evaluate(() => {
+                const element = document.querySelector('button[name="next"]');
+                element.click();
+            });
             console.log('Thanh cong');
         }
         await browser.close();
