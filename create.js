@@ -4,8 +4,8 @@ const puppeteer = require('puppeteer');
     const start = new Date();
     const rows = [
         {
-            username: "giapthiyenvtvybg@gmail.com",
-            password: "Giapyen20092000@37",
+            username: "laihaylike@gmail.com",
+            password: "@Tambiet310520",
         }
     ]
 
